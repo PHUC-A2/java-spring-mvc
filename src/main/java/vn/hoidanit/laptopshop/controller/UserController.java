@@ -2,44 +2,33 @@ package vn.hoidanit.laptopshop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 
-// import vn.hoidanit.laptopshop.service.UserService;
-
-// @Controller // @ là Annotation
 @Controller
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        String test = this.userService.handleHello();
-        model.addAttribute("eric", test); // eric là tên biến dngf trong hello.jsp
-        model.addAttribute("hoidanit", "from controller with model"); // eric là tên biến dngf trong hello.jsp
-
-        return "hello";// trả về file eric.html
+    @RequestMapping("/admin/user")
+    public String getUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "/admin/user/create"; // trả về file create.jsp
     }
+
+    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    public String createUserPage(@ModelAttribute("newUser") User hoidanit) {
+        System.out.println("run here" + hoidanit);
+        this.userService.handleSaveUser(hoidanit);
+        return "hello"; // nếu thêm thành công thì chuyển sang trang hello
+    }
+
 }
-
-// @RestController
-// public class UserController {
-
-// // Khai báo Userservice
-// final private UserService userService;
-
-// public UserController(UserService userService) {
-// this.userService = userService;
-// }
-
-// @GetMapping("")
-// public String getHomePage() {
-// return this.userService.handleHello();
-// }
-// }
