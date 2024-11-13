@@ -1,10 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="form"
 uri="http://www.springframework.org/tags/form" %>
-<<<<<<< HEAD
-=======
-
->>>>>>> fc1709978b910fdac5f88599ac4d86c46d95b291
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,25 +30,16 @@ uri="http://www.springframework.org/tags/form" %>
         <div class="col-md-6 col-12 mx-auto">
           <h3>Create a user</h3>
           <hr />
-<<<<<<< HEAD
           <!-- (link) action="/admin/user/create"
            có thể thay thành action="/admin/user/create1" ...
             -->
-=======
-          <!-- Dùng post để gửi data đi và action link -->
-          <!-- url sẽ do service mình quản lý -->
-          <!--  modelAttribute="newUser" -->
->>>>>>> fc1709978b910fdac5f88599ac4d86c46d95b291
           <form:form
             method="post"
             action="/admin/user/create1"
             modelAttribute="newUser"
           >
             <div class="mb-3">
-<<<<<<< HEAD
               <!-- path=(biến trong lớp User) -->
-=======
->>>>>>> fc1709978b910fdac5f88599ac4d86c46d95b291
               <label class="form-label">Email:</label>
               <form:input type="email" class="form-control" path="email" />
             </div>
@@ -61,11 +48,7 @@ uri="http://www.springframework.org/tags/form" %>
               <form:input
                 type="password"
                 class="form-control"
-<<<<<<< HEAD
                 path="passWord"
-=======
-                path="password"
->>>>>>> fc1709978b910fdac5f88599ac4d86c46d95b291
               />
             </div>
             <div class="mb-3">
@@ -78,11 +61,7 @@ uri="http://www.springframework.org/tags/form" %>
             </div>
             <div class="mb-3">
               <label class="form-label">Address:</label>
-<<<<<<< HEAD
               <form:input type="text" class="form-control" path="addRess" />
-=======
-              <form:input type="text" class="form-control" path="address" />
->>>>>>> fc1709978b910fdac5f88599ac4d86c46d95b291
             </div>
             <button type="submit" class="btn btn-success">Create</button>
           </form:form>
