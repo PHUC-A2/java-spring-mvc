@@ -46,12 +46,17 @@ public class UserController {
     // }
 
     @RequestMapping("/admin/user")
+    public String getTableUserPage() {
+        return "/admin/user/tableuser"; // trả về file create.jsp
+    }
+
+    @RequestMapping("/admin/user/create")
     public String getUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "/admin/user/create"; // trả về file create.jsp
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(@ModelAttribute("newUser") User hoidanit) {
         System.out.println("run here" + hoidanit);
         this.userService.handleSaveUser(hoidanit);
